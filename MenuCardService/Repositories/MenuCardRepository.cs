@@ -8,12 +8,6 @@ using Microsoft.ServiceFabric.Data.Collections;
 
 namespace MenuCardService.Repositories
 {
-    public interface IMenuCardRepository
-    {
-        Task<MenuData> AddMenuAsync(MenuData menuData);
-        Task<MenuData> GetMenuAsync(int id);
-    }
-
     public class MenuCardRepository : IMenuCardRepository
     {
         private readonly IReliableStateManager _stateManager;
@@ -56,7 +50,6 @@ namespace MenuCardService.Repositories
                     };
                 }
 
-                ;
                 return null;
             }
         }
