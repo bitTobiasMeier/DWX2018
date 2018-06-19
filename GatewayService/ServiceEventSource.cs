@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace GatewayService
 {
-    [EventSource(Name = "MyCompany-DWX2018-GatewayService")]
+    [EventSource(Name = "MyCompany-Dwx2018-GatewayService")]
     internal sealed class ServiceEventSource : EventSource
     {
         public static readonly ServiceEventSource Current = new ServiceEventSource();

@@ -3,9 +3,24 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
-    <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-    <UserSecretsId>4da12f4d-6dcf-4886-9048-08bbb0bda00a</UserSecretsId>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
   </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)' == 'Linux' ">
+    <Description>GatewayService</Description>
+    <Authors> </Authors>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>GatewayService</AssemblyName>
+    <PackageId>GatewayService</PackageId>
+    <PackageTargetFallback>$(PackageTargetFallback)</PackageTargetFallback>
+  </PropertyGroup>
+
+  
+ <PropertyGroup Condition="'$(Configuration)' != 'Linux' ">
+    <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
 
   <ItemGroup>
     <Folder Include="wwwroot\" />

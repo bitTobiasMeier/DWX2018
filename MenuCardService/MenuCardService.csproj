@@ -2,7 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
+    <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>    
+	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)' == 'Linux' ">
+    <Description>MenuCardService</Description>
+    <Authors> </Authors>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>MenuCardService</AssemblyName>
+    <PackageId>MenuCardService</PackageId>
+    <PackageTargetFallback>$(PackageTargetFallback)</PackageTargetFallback>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' != 'Linux' ">
     <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
   </PropertyGroup>
 
