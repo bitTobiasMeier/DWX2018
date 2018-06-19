@@ -19,7 +19,7 @@ namespace GatewayService.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            return "Hello DWX " + id.ToString() + ": Time: " + DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
         }
 
         // POST api/values
