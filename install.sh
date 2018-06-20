@@ -1,9 +1,9 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-appPkg="$DIR/Dwx2018/pkg"
+appPkg="$DIR/DWX2018/pkg"
 
-WebServiceManifestlocation="$appPkg/Dwx2018/MenuCardServicePkg"
+WebServiceManifestlocation="$appPkg/DWX2018/MenuCardServicePkg"
 WebServiceManifestlocationLinux="$WebServiceManifestlocation/ServiceManifest.Linux.xml"
 WebServiceManifestlocation="$WebServiceManifestlocation/ServiceManifest.xml"
 cp $WebServiceManifestlocationLinux $WebServiceManifestlocation 
@@ -13,10 +13,10 @@ StatefulServiceManifestlocationLinux="$StatefulServiceManifestlocation/ServiceMa
 StatefulServiceManifestlocation="$StatefulServiceManifestlocation/ServiceManifest.xml"
 
 cp $StatefulServiceManifestlocationLinux $StatefulServiceManifestlocation
-cp dotnet-include.sh ./Dwx2018/pkg/DWX2018/MenuCardServicePkg/Code/
-cp dotnet-include.sh ./Dwx2018/pkg/DWX2018/GatewayServicePkg/Code
-cd $DIR/Dwx2018/pkg/
-sfctl application upload --path Dwx2018 --show-progress
-sfctl application provision --application-type-build-path Dwx2018
-sfctl application create --app-name fabric:/Dwx2018 --app-type Dwx2018Type --app-version 1.0.0
+cp dotnet-include.sh ./DWX2018/pkg/DWX2018/MenuCardServicePkg/Code/
+cp dotnet-include.sh ./DWX2018/pkg/DWX2018/GatewayServicePkg/Code
+cd $DIR/DWX2018/pkg/
+sfctl application upload --path DWX2018 --show-progress
+sfctl application provision --application-type-build-path DWX2018
+sfctl application create --app-name fabric:/DWX2018 --app-type DWX2018Type --app-version 1.0.0
 cd -

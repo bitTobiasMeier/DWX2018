@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace MenuCardService
 {
-    [EventSource(Name = "MyCompany-Dwx2018-MenuCardService")]
+    [EventSource(Name = "MyCompany-DWX2018-MenuCardService")]
     internal sealed class ServiceEventSource : EventSource
     {
         public static readonly ServiceEventSource Current = new ServiceEventSource();

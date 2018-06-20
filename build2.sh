@@ -29,12 +29,12 @@ cd -
 cd $DIR/MenuCardService/
 dotnet restore -s https://api.nuget.org/v3/index.json
 dotnet build 
-dotnet publish -c Linux -o ../DWX2018/pkg/DWX2018/MenuCardServicePkg/Code 
+dotnet publish -c Linux -o ../DWX2018/pkg/DWX2018/MenuCardServicePkg/Code -r ubuntu.16.04-x64
 cd -
 
 
 cd $DIR/GatewayService/
 dotnet restore -s https://api.nuget.org/v3/index.json
 dotnet build 
-dotnet publish -c Linux -o ../DWX2018/pkg/DWX2018/GatewayServicePkg/Code/  
+dotnet publish -c Linux -o ../DWX2018/pkg/DWX2018/GatewayServicePkg/Code -r ubuntu.16.04-x64
 cd -

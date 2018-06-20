@@ -26,7 +26,7 @@ namespace GatewayService.Controllers
 
         private IMenuCardService CreateProxy()
         {
-            return ServiceProxy.Create<IMenuCardService>(new Uri("fabric:/Dwx2018/MenuCardService"),
+            return ServiceProxy.Create<IMenuCardService>(new Uri("fabric:/DWX2018/MenuCardService"),
                 new ServicePartitionKey(0));
         }
     }

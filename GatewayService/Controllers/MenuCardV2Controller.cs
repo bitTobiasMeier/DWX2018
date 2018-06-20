@@ -46,7 +46,7 @@ namespace GatewayService.Controllers
         {
             var client = new ServicePartitionClient<HttpCommunicationClient>(
                 _clientFactory,
-                new Uri("fabric:/Dwx2018/MenuCardService"), new ServicePartitionKey(0)
+                new Uri("fabric:/DWX2018/MenuCardService"), new ServicePartitionKey(0)
             );
             return client;
         }
