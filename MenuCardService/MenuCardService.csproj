@@ -25,13 +25,22 @@
   </ItemGroup>
   
   <ItemGroup >
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />    
-	<PackageReference Include="Microsoft.ServiceFabric" Version="6.2.262" />
-    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.1.262" />
-    <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.1.262" />
-    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.262" />
-    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.1.262" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" Condition="'$(Configuration)' == 'Linux' "/>    
+	<PackageReference Include="Microsoft.ServiceFabric" Version="6.2.262" Condition="'$(Configuration)' == 'Linux' "/>
+    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' "/>
+    <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' "/>
+    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' "/>
+    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' "/>
   </ItemGroup>
+  
+  <ItemGroup >
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" Condition="'$(Configuration)' != 'Linux' "/>
+    <PackageReference Include="Microsoft.ServiceFabric" Version="6.2.283" Condition="'$(Configuration)' != 'Linux' "/>
+    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' "/>
+    <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' "/>
+    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' "/>
+    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' "/>
+  </ItemGroup> 
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
