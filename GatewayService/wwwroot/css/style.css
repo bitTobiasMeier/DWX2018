@@ -143,3 +143,10 @@
 .card-select-dish a {
     cursor: pointer;
 }
+
+legend{
+    font-size:medium;
+    font-weight: 500;
+}
+
+

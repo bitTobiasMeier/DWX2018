@@ -5,26 +5,50 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 
-<div class="card">
+
+<div class="card" >
     <div class="card-header">
         Karteneintrag hinzufügen:
     </div>
     <div class="card-body">
         <h4 class="card-title">@Model.Location/api/menucard</h4>
         <p class="card-text">
-            Json-Beispiel: 
+            Json-Beispiel:
 <pre>
 {
     "id": 1,
     "name": "Frühlingsmenü",
-    "description": "Bärlauchsüppchen, Spargelsalat, Rumsteak"
+    "description": "Bärlauchsüppchen, Spargelsalat, Rumpsteak"
 }
 </pre>
+            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                Post Testen ...
+            </button>
+
         </p>
+        <div class="collapse" id="collapseExample1">
+        <fieldset>
+            <legend>Request:</legend>
+            Adresse: <input id="postAddress" name="postAddress" value="@Model.Location/api/menucard/" style="width:100%" />
+            Json: <textarea id="postData" name="postData" style="width:100%; min-height:100px"></textarea><br>
+        </fieldset>
+
+        <p>&nbsp;</p>
+        <button type="button" onclick="postToServer()" class="btn">Http Post</button><br />
+        <p>&nbsp;</p>
+
+        <fieldset>
+            <legend>Response:</legend>
+            Ergebnis: <pre id="postResult">
+        </pre>
+        </fieldset>
+    </div>
+        
+
     </div>
 </div>
 
-<div class="card">
+<div class="card " >
     <div class="card-header">
         Karteneintrag abfragen:
     </div>
@@ -32,26 +56,35 @@
         <h4 class="card-title">@Model.Location/api/menucard/{nr}</h4>
         <p class="card-text">
             Beispiel: GET: @Model.Location/api/menucard/2
-<pre>
+            <pre>
 {
     "id": 2,
-    "name": "Currywurst",
-    "description": "Currywurst mit Pommes"
+    "name": "Sommermenü",
+    "description": "Kokossuppe, Fischvariationen, Mangoeis"
 }
 </pre>
+            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                Get Testen ...
+            </button>
         </p>
-    </div>
-</div>
+        <div class="collapse" id="collapseExample2">
+            <fieldset>
+                <legend>Request:</legend>
+                Adresse: <input id="getAddress" name="getAddress" value="@Model.Location/api/menucard/1" style="width:100%" />
+            </fieldset>
 
-<div class="card">
-    <div class="card-header">
-        Kontaktinformationen
+            <p>&nbsp;</p>
+            <button type="button" onclick="getFromServer()" class="btn">Http Get</button><br />
+            <p>&nbsp;</p>
+
+            <fieldset>
+                <legend>Response:</legend>
+                Ergebnis: <pre id="getResult">
+        </pre>
+            </fieldset>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        <h4 class="card-title">Tobias Meier, BridgingIT GmbH</h4>
-        <p class="card-text">
-            Twitter: @@bitTobiasMeier<br />Email: tobias.meier@@bridging-it.de
-        </p>
-    </div>
-</div>
+
+
 
