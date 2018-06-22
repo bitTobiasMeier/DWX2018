@@ -3,7 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>    
-	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>    	
+	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>    
+	<Platforms>AnyCPU;x64</Platforms>    	
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)' == 'Linux' ">
@@ -24,22 +25,23 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
   
-  <ItemGroup >
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" Condition="'$(Configuration)' == 'Linux' "/>    
-	<PackageReference Include="Microsoft.ServiceFabric" Version="6.2.262" Condition="'$(Configuration)' == 'Linux' "/>
-    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' "/>
-    <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' "/>
-    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' "/>
-    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' "/>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" Condition="'$(Configuration)' == 'Linux' " />    
+	<PackageReference Include="Microsoft.ServiceFabric" Version="6.2.262" Condition="'$(Configuration)' == 'Linux' " />
+    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' " />
+    <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' " />
+    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' " />
+    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.1.262" Condition="'$(Configuration)' == 'Linux' " />
   </ItemGroup>
   
-  <ItemGroup >
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" Condition="'$(Configuration)' != 'Linux' "/>
-    <PackageReference Include="Microsoft.ServiceFabric" Version="6.2.283" Condition="'$(Configuration)' != 'Linux' "/>
-    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' "/>
-    <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' "/>
-    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' "/>
-    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' "/>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" Condition="'$(Configuration)' != 'Linux' " />
+    <PackageReference Include="Microsoft.ServiceFabric" Version="6.2.283" Condition="'$(Configuration)' != 'Linux' " />
+    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' " />
+    <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' " />
+    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' " />
+    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' " />
+	<PackageReference Include="NSwag.MSBuild" Version="11.17.15" />
   </ItemGroup> 
 
   <ItemGroup>
@@ -49,5 +51,12 @@
   <ItemGroup>
     <ProjectReference Include="..\MenuCardService.Interfaces\MenuCardService.Interfaces.csproj" />
   </ItemGroup>
+  
+  <Target Name="NSwag" AfterTargets="Build" Condition="'$(Configuration)' != 'Linux' ">
+    <Exec Command="$(NSwagExe_Core20) run nswagmenucard.nswag " />
+  </Target>
+  <Target Name="NSwag" AfterTargets="Build" Condition="'$(Configuration)' == 'Linux' ">
+    <Exec Command="$(NSwagExe_Core20) run nswagmenucard.linux.nswag " />
+  </Target>
 
 </Project>
