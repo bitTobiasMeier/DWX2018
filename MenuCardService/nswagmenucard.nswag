@@ -24,7 +24,7 @@
         "bin/x64/Debug/netcoreapp2.0/win7-x64/MenuCardService.dll"
       ],
       "referencePaths": [
-        "../../Users/tmeier/.nuget/packages"
+        "%USERPROFILE%/.nuget/packages"
       ]
     }
   },

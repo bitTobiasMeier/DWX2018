@@ -24,7 +24,7 @@
         "bin/Linux/netcoreapp2.0/MenuCardService.dll"
       ],
       "referencePaths": [
-        "../../Users/tmeier/.nuget/packages"
+        "%USERPROFILE%/.nuget/packages"
       ]
     }
   },
