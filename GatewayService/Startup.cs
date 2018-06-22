@@ -34,6 +34,8 @@ namespace GatewayService
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+
             app.UseMvc();
         }
     }

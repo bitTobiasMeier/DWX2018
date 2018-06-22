@@ -1,0 +1,57 @@
+﻿@page
+@model GatewayService.Pages.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Karteneintrag hinzufügen:
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">@Model.Location/api/menucard</h4>
+        <p class="card-text">
+            Json-Beispiel: 
+<pre>
+{
+    "id": 1,
+    "name": "Frühlingsmenü",
+    "description": "Bärlauchsüppchen, Spargelsalat, Rumsteak"
+}
+</pre>
+        </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Karteneintrag abfragen:
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">@Model.Location/api/menucard/{nr}</h4>
+        <p class="card-text">
+            Beispiel: GET: @Model.Location/api/menucard/2
+<pre>
+{
+    "id": 2,
+    "name": "Currywurst",
+    "description": "Currywurst mit Pommes"
+}
+</pre>
+        </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Kontaktinformationen
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Tobias Meier, BridgingIT GmbH</h4>
+        <p class="card-text">
+            Twitter: @@bitTobiasMeier<br />Email: tobias.meier@@bridging-it.de
+        </p>
+    </div>
+</div>
+

@@ -4,7 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
     <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
-    <Platforms>AnyCPU;x64</Platforms>    
+    <Platforms>AnyCPU;x64</Platforms>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>    
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)' == 'Linux' ">
@@ -20,11 +21,10 @@
  <PropertyGroup Condition="'$(Configuration)' != 'Linux' ">
     <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
   </PropertyGroup>
-
-
-  <ItemGroup>    
-    <Folder Include="wwwroot\" />	
-  </ItemGroup>
+  
+ <ItemGroup>
+   <Content Remove="wwwroot\js\site.ts" />
+ </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" Condition="'$(Configuration)' == 'Linux' " />    
@@ -41,7 +41,8 @@
     <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' " />
     <PackageReference Include="Microsoft.ServiceFabric.Data" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' " />
     <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' " />
-    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' " />    
+    <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="3.1.283" Condition="'$(Configuration)' != 'Linux' " />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />    
   </ItemGroup> 
 
   <ItemGroup>
@@ -50,6 +51,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MenuCardService.Interfaces\MenuCardService.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\style.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\js\site.ts" />
   </ItemGroup>
 
 </Project>

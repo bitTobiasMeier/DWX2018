@@ -1,0 +1,145 @@
+﻿body {
+    background: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+.bitcolor {
+    background-color: white;
+}
+
+.bitfooter {
+    padding: 10px;
+    background: white;
+}
+.dishimg {
+    width: 100px;
+}
+
+#header {
+    background-image: url("/images/foto5.jpg");
+    height: 150px;
+    width: 100%;
+    padding: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0px solid white;
+}
+
+#header h1 {
+    font-size: 180%;
+}
+
+.navbar {
+    
+    text-align: center;
+}
+
+#navbarSupportedContent ul li a {
+    color: black;
+}
+
+#navbarSupportedContent ul li a:hover {
+    color: white;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: white;
+}
+
+.card-select {
+    padding: 10px;
+}
+
+.btn {
+    background-color: #999999;
+    border: 0px solid white;
+}
+
+.btn:hover {
+    background-color: #d8d8d8;
+    border: 0px solid white;
+    color: black;
+}
+
+#button {
+    color: white;
+}
+
+.selected {
+    font: 250% "Freestyle Script";
+    font-weight: bolder;
+}
+
+.selected-message {
+    color: #39a512;
+}
+
+#card-dish {
+    padding: 2%;
+    float: left;
+    height: 400px;
+}
+
+#card-dish div a {
+    float: left;
+    margin-right: 10px;
+}
+
+#card-dish div img {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.menue-title {
+    font: 250% "Freestyle Script";
+    text-align: center;
+    margin-top: 10px;
+}
+
+.menue-text {
+    text-align: center;
+}
+
+.card-select {
+    margin-right: 10px;
+}
+
+.card, .card-kitchen {
+    margin-right: 5%;
+    float: left;
+    padding: 10px;
+}
+
+.card-header {
+    background-color: #ddc073;
+}
+
+#adminNeuesRegister {
+    margin-bottom: 10px;
+}
+
+#anzahl {
+    text-align: center;
+}
+
+.card-deck {
+    width: 100%;
+    position: block;
+    margin: 0px auto;
+}
+
+.adminTableNumber {
+    margin-bottom: 2%;
+    width: 100%;
+    padding: 2%;
+    border: 1px solid gray;
+}
+
+.card-kitchen {
+    border: 1px solid gray;
+    margin-bottom: 10px;
+}
+
+.card-select-dish a {
+    cursor: pointer;
+}
