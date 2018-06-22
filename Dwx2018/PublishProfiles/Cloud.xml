@@ -20,7 +20,10 @@
                                     AzureActiveDirectory="true"
                                     ServerCertThumbprint="0123456789012345678901234567890123456789" />
   -->
-  <ClusterConnectionParameters ConnectionEndpoint="svcfabricmddev.westeurope.cloudapp.azure.com:19000" X509Credential="true" ServerCertThumbprint="8943CAC97CED2DB4C1B6CF8698F97D6338A961E8" FindType="FindByThumbprint" FindValue="8943CAC97CED2DB4C1B6CF8698F97D6338A961E8" StoreLocation="CurrentUser" StoreName="My" />
+  <ClusterConnectionParameters ConnectionEndpoint="svfabricdemo1.westeurope.cloudapp.azure.com:19000" X509Credential="true" ServerCertThumbprint="FC1E8FBFE8716F681FF556F1460590F6DE0A7344" FindType="FindByThumbprint" FindValue="FC1E8FBFE8716F681FF556F1460590F6DE0A7344" StoreLocation="CurrentUser" StoreName="My" />
   <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
   <CopyPackageParameters CompressPackage="true" />
+  <UpgradeDeployment Mode="Monitored" Enabled="true">
+    <Parameters FailureAction="Rollback" Force="True" />
+  </UpgradeDeployment>
 </PublishProfile>
