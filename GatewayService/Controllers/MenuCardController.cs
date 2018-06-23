@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MenuCardService.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,22 @@ namespace GatewayService.Controllers
             var proxy = this.CreateProxy();
             return await proxy.GetMenuAsync(id);
         }
-        
+
+        [HttpGet()]
+        public async Task<IEnumerable<MenuData>> GetAll()
+        {
+            try
+            {
+                var proxy = this.CreateProxy();
+                return await proxy.GetAllAsync();
+            }
+            catch (Exception ex)
+            {
+                ServiceEventSource.Current.Message("Error:" + ex.Message);
+                throw;
+            }
+        }
+
         [HttpPost]
         public async Task<MenuData> Post([FromBody]MenuData value)
         {

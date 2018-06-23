@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using GatewayService.Utilities;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,18 @@ namespace GatewayService.Controllers
                     var client = new MenuCardClient(x.HttpClient);
                     return await client.GetAsync(id);
                 }
+            );
+        }
+
+        [HttpGet()]
+        public async Task<IEnumerable<MenuData>> GetAll()
+        {
+            var proxy = CreateProxy();
+            return await proxy.InvokeWithRetry(async x =>
+            {
+                var client = new MenuCardClient(x.HttpClient);
+                return await client.GetAllAsync();
+            }
             );
         }
 

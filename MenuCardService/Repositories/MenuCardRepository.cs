@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Threading;
 using System.Threading.Tasks;
 using MenuCardService.Interfaces;
 using Microsoft.ServiceFabric.Data;
@@ -52,6 +54,38 @@ namespace MenuCardService.Repositories
 
                 return null;
             }
+        }
+
+        public async Task<List<MenuData>> GetAllAsync()
+        {
+            var list = new List<MenuData>();
+            using (var tx = this._stateManager.CreateTransaction())
+            {
+                var dic = await this._stateManager.GetOrAddAsync<IReliableDictionary<int, MenuCardContract>>("Cards");
+                var asyncEnumerable = await dic.CreateEnumerableAsync(tx);
+                using (var asyncEnumerator = asyncEnumerable.GetAsyncEnumerator())
+                {
+                    while (await asyncEnumerator.MoveNextAsync(CancellationToken.None))
+                    {
+                        var menuData = asyncEnumerator.Current.Value;
+                        list.Add(new MenuData()
+                        {
+                            Id = menuData.Id,
+                            Description = menuData.Description,
+                            Name = menuData.Name
+                        });
+                    }
+                }
+                return list;
+            }           
+        }
+
+        [DataContract]
+        internal class MenuCardContract
+        {
+            [DataMember] public int Id { get; set; }
+            [DataMember] public string Name { get; set; }
+            [DataMember] public string Description { get; set; }
         }
     }
 }

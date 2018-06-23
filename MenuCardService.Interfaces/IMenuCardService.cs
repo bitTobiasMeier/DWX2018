@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Services.Remoting;
 
 namespace MenuCardService.Interfaces
@@ -7,5 +8,6 @@ namespace MenuCardService.Interfaces
     {
         Task<MenuData> AddMenuAsync(MenuData menuData);
         Task<MenuData> GetMenuAsync(int id);
+        Task<List<MenuData>> GetAllAsync();
     }
 }

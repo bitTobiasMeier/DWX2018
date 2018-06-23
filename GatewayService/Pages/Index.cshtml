@@ -6,7 +6,7 @@
 }
 
 
-<div class="card" >
+<div class="card">
     <div class="card-header">
         Karteneintrag hinzufügen:
     </div>
@@ -21,34 +21,34 @@
     "description": "Bärlauchsüppchen, Spargelsalat, Rumpsteak"
 }
 </pre>
-            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-                Post Testen ...
+            <button class="btn buttonBlue" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                Testbereich ein-/ausblenden ...
             </button>
 
         </p>
         <div class="collapse" id="collapseExample1">
-        <fieldset>
-            <legend>Request:</legend>
-            Adresse: <input id="postAddress" name="postAddress" value="@Model.Location/api/menucard/" style="width:100%" />
-            Json: <textarea id="postData" name="postData" style="width:100%; min-height:100px"></textarea><br>
-        </fieldset>
+            <fieldset>
+                <legend>Request:</legend>
+                Adresse: <input id="postAddress" name="postAddress" value="@Model.Location/api/menucard/" style="width:100%" />
+                Json: <textarea id="postData" name="postData" style="width:100%; min-height:100px"></textarea><br>
+            </fieldset>
 
-        <p>&nbsp;</p>
-        <button type="button" onclick="postToServer()" class="btn">Http Post</button><br />
-        <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <button type="button" onclick="postToServer()" class="btn buttonGreen">Http Post</button><br />
+            <p>&nbsp;</p>
 
-        <fieldset>
-            <legend>Response:</legend>
-            Ergebnis: <pre id="postResult">
+            <fieldset>
+                <legend>Response:</legend>
+                Ergebnis: <pre id="postResult">
         </pre>
-        </fieldset>
-    </div>
-        
+            </fieldset>
+        </div>
+
 
     </div>
 </div>
 
-<div class="card " >
+<div class="card ">
     <div class="card-header">
         Karteneintrag abfragen:
     </div>
@@ -63,8 +63,8 @@
     "description": "Kokossuppe, Fischvariationen, Mangoeis"
 }
 </pre>
-            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-                Get Testen ...
+            <button class="btn buttonBlue" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                Testbereich ein-/ausblenden ...
             </button>
         </p>
         <div class="collapse" id="collapseExample2">
@@ -74,7 +74,7 @@
             </fieldset>
 
             <p>&nbsp;</p>
-            <button type="button" onclick="getFromServer()" class="btn">Http Get</button><br />
+            <button type="button" onclick="getFromServer()" class="btn buttonGreen">Http Get</button><br />
             <p>&nbsp;</p>
 
             <fieldset>
@@ -82,9 +82,48 @@
                 Ergebnis: <pre id="getResult">
         </pre>
             </fieldset>
-            </div>
         </div>
     </div>
+</div>
 
 
+<div class="card ">
+    <div class="card-header">
+        Alle Karteneinträge abfragen:
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">@Model.Location/api/menucard/</h4>
+        <p class="card-text">
+            Beispiel: GET: @Model.Location/api/menucard/
+            <pre>
+[
+ {
+    "id": 2,
+    "name": "Sommermenü",
+    "description": "Kokossuppe, Fischvariationen, Mangoeis"
+ }
+]
+</pre>
+            <button class="btn buttonBlue" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
+                Testbereich ein-/ausblenden ...
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample3">
+            <fieldset>
+                <legend>Request:</legend>
+                Adresse: <input id="getAllAddress" name="getAllAddress" value="@Model.Location/api/menucard/" style="width:100%" />
+            </fieldset>
+
+            <p>&nbsp;</p>
+            <button type="button" onclick="getAllFromServer()" class="btn buttonGreen">Http Get</button><br />
+            <p>&nbsp;</p>
+
+            <fieldset>
+                <legend>Response:</legend>
+                Ergebnis: <pre id="getAllResult">
+        </pre>
+            </fieldset>
+        </div>
+    </div>
+</div>
 

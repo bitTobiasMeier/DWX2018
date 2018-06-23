@@ -74,16 +74,13 @@ namespace MenuCardService
             return await this._menuCardRep.GetMenuAsync(id);
         }
 
-
+        public async Task<List<MenuData>> GetAllAsync()
+        {
+            return await this._menuCardRep.GetAllAsync();
+        }
     }
 
-    [DataContract]
-    internal class MenuCardContract
-    {
-        [DataMember] public int Id { get; set; }
-        [DataMember] public string Name { get; set; }
-        [DataMember] public string Description { get; set; }
-    }
+  
 
     
 }

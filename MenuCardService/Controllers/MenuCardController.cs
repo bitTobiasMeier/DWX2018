@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using MenuCardService.Interfaces;
 using MenuCardService.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -17,13 +18,19 @@ namespace MenuCardService.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<MenuData> Get(int id)
+        public async Task<MenuData> GetAsync(int id)
         {
             return await this._menuCardRepository.GetMenuAsync(id);
         }
 
+        [HttpGet()]
+        public async Task<List<MenuData>> GetAllAsync()
+        {
+            return await this._menuCardRepository.GetAllAsync();
+        }
+
         [HttpPost]
-        public async Task<MenuData> Post([FromBody] MenuData value)
+        public async Task<MenuData> PostAsync([FromBody] MenuData value)
         {
             return await _menuCardRepository.AddMenuAsync(value);
         }
